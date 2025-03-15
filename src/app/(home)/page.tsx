@@ -9,6 +9,8 @@ const Home = () => {
 
   const documents = useQuery(api.documents.get);
 
+  console.log({documents});
+
   if (!documents) {
     return <p>Loading...</p>;
   }
