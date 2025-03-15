@@ -48,6 +48,7 @@ export const TemplatesGallery = () => {
                                     isCreating&&"pointer-events-none opacity-50"
                                 )}>
                                     <button disabled={isCreating}
+                                    //todo initialContent
                                     onClick={()=>onTemplateClick(template.label,"")}
                                     style={{
                                         backgroundImage: `url(${template.imageUrl})`,
