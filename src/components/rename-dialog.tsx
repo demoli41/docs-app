@@ -15,6 +15,7 @@ import { api } from "../../convex/_generated/api";
 import { useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { toast } from "sonner";
 
 
   
@@ -36,9 +37,11 @@ import { Button } from "./ui/button";
         setIsUpdating(true);
 
         update({id:documentId,title:title.trim() || "Untitled"})
-        .then(()=>setOpen(false))
+        .catch(()=>toast.error("Failed to rename document"))
+        .then(()=>toast.success("Document deleted"))
         .finally(()=>{
             setIsUpdating(false);
+            setOpen(false);
         });
     };
 
