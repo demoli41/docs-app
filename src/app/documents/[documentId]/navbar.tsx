@@ -20,9 +20,30 @@ import { BoldIcon, FileIcon, FileJsonIcon, FilePenIcon, FilePlusIcon, FileTextIc
 import { BsFilePdf } from 'react-icons/bs';
 import { useEditorStore } from '@/store/use-editor-store';
 import { OrganizationSwitcher, UserButton } from '@clerk/nextjs';
+import { useEffect, useState } from 'react';
 
 export const Navbar = () => {
+   /* const [canUndo, setCanUndo] = useState(false);
+    const [canRedo, setCanRedo] = useState(false);*/
+
+    
     const {editor} = useEditorStore();
+
+    /*useEffect(() => {
+        if (!editor) return;
+      
+        const updateState = () => {
+          setCanUndo(editor.can().undo);
+        };
+      
+        editor.on("transaction", updateState);
+      
+        return () => {
+          editor.off("transaction", updateState);
+        };
+      }, [editor]);*/
+      
+    
 
     const insertTable=({rows, cols}:{rows:number, cols:number})=>{
         editor
@@ -139,7 +160,8 @@ export const Navbar = () => {
                                     Edit
                                 </MenubarTrigger>
                                 <MenubarContent>
-                                    <MenubarItem onClick={()=>editor?.chain().focus().undo().run()}>
+                                    <MenubarItem 
+                                    onClick={()=>editor?.chain().focus().undo().run()}>
                                         <Undo2Icon className='size-4 mr-2'/>
                                         Undo <MenubarShortcut>Ctrl+Z</MenubarShortcut>
                                     </MenubarItem>
