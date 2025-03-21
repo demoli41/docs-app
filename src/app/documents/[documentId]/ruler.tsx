@@ -2,6 +2,8 @@ import { useRef, useState } from 'react';
 import {FaCaretDown} from 'react-icons/fa';
 import { useStorage,useMutation } from '@liveblocks/react';
 
+import { RIGHT_MARGIN_DEFAULT,LEFT_MARGIN_DEFAULT } from '@/constants/margins';
+
 const markers=Array.from({length: 83}, (_, i) => i );
 
 export const Ruler = () => {
@@ -58,11 +60,11 @@ export const Ruler = () => {
     };
 
     const handleLeftDoubleClick=()=>{
-        setLeftMargin(56);
+        setLeftMargin(LEFT_MARGIN_DEFAULT);
     };
 
     const handleRightDoubleClick=()=>{
-        setRightMargin(56);
+        setRightMargin(RIGHT_MARGIN_DEFAULT);
     };
 
 

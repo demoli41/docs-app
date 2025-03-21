@@ -8,7 +8,7 @@ import
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
-import { temlates } from "@/constants/templates";
+import { templates } from "@/constants/templates";
 import { cn } from "@/lib/utils";
 import { useMutation } from "convex/react";
 import { useRouter } from "next/navigation";
@@ -44,7 +44,7 @@ export const TemplatesGallery = () => {
                 </h3>
                 <Carousel>
                     <CarouselContent className="-ml-4">
-                        {temlates.map((template) => (
+                        {templates.map((template) => (
                             <CarouselItem key={template.id} className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 2xl:basis-[14.285714285714286%] pl-4">
                                 <div className={cn(
                                     "aspect-[3/4] flex flex-col gap-y-2.5",
@@ -52,7 +52,7 @@ export const TemplatesGallery = () => {
                                 )}>
                                     <button disabled={isCreating}
                                     //todo initialContent
-                                    onClick={()=>onTemplateClick(template.label,"")}
+                                    onClick={()=>onTemplateClick(template.label,template.initialContent)}
                                     style={{
                                         backgroundImage: `url(${template.imageUrl})`,
                                         backgroundSize: "cover",
